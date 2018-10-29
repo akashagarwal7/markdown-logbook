@@ -1,0 +1,52 @@
+body, #textbox {
+  background-color: whitesmoke;
+  color: black;
+  /*padding: 5px;*/
+}
+
+#textbox, #display, #footer {
+  border-radius: 5px;
+}
+
+#footer {
+  background-color: black;
+  color: whitesmoke;
+  padding: 5px;
+  position: absolute;
+  bottom: 0;
+  width: 97%;
+  margin-bottom: 5px;
+}
+
+#person, #entry {
+  margin-left: 10px;
+}
+
+#entry {
+  width: 70%;
+  height: 100%;
+}
+
+#textbox {
+  width: 49%;
+}
+
+#display {
+  overflow-y: auto;
+  width: 48%;
+  float: right;
+  height: 400px;
+  background-color: black;
+  color: whitesmoke;
+  padding: 8px;
+}
+
+#holder {
+  width: 99%;
+  height: 50px;
+  border-width: 5px;
+  border-style: dashed;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 50px;
+}
