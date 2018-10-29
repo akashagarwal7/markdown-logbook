@@ -1,6 +1,7 @@
 var fs = require('fs');
 var showdown  = require('showdown');
 var converter = new showdown.Converter();
+var moment = require('moment');
 
 var p = 'EXAMPLE.md';
 
@@ -9,7 +10,8 @@ function updateDiv(data) {
 }
 
 function addLog(type, person, entry) {
-	data = "\n__" + type + "__ (" + person + ") - " + entry + "\n";
+	let date = moment().utc().format('Do MMMM YYYY, h:mm A');
+	let data = "\n__" + type + "__ (" + person + ") _" + date + "_ - " + entry + "\n";
 	document.getElementById("textbox").value += data;
 	updateDiv(document.getElementById("textbox").value);
 }

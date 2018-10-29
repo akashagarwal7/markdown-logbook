@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "fs": "0.0.1-security",
+    "moment": "^2.22.2",
     "showdown": "^1.8.7"
   }
 }
