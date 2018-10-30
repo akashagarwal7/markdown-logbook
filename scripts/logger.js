@@ -21,6 +21,7 @@ function saveFile() {
 	fs.writeFile(p, data, (err) => {
 	  if (err) throw err;
 	  console.log('The file has been saved!');
+	  alert('The file has been saved!');
 	});
 }
 
