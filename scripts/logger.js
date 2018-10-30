@@ -5,6 +5,25 @@ var moment = require('moment');
 
 var p = 'EXAMPLE.md';
 
+const { dialog } = require('electron').remote;
+
+function openFileDialog() {
+	dialog.showOpenDialog({ properties: ['openFile'] }, (filePaths, bookmarks) => {
+		if (filePaths.length > 0) {
+			p = filePaths[0];
+			openFile(p);
+		}
+	});
+}
+
+function saveFile() {
+	const data = new Uint8Array(Buffer.from(document.getElementById("textbox").value));
+	fs.writeFile(p, data, (err) => {
+	  if (err) throw err;
+	  console.log('The file has been saved!');
+	});
+}
+
 function updateDiv(data) {
 	document.getElementById("display").innerHTML = converter.makeHtml(data);
 }

@@ -6,7 +6,11 @@
     <link rel="stylesheet" type="text/css" href="./styles/index.css">
   </head>
   <body>
-    <h1>Log book</h1>
+    <span>
+      <h1>Log book</h1>
+      <button id='openDialog' onclick="openFileDialog()">Open</button>
+      <button onclick="saveFile()">Save</button>
+    </span>
     <!-- All of the Node.js APIs are available in this renderer process. -->
     <!-- We are using Node.js <script>document.write(process.versions.node)</script>,
     Chromium <script>document.write(process.versions.chrome)</script>,
@@ -22,9 +26,9 @@
       
     </span>
 
-    <div id="holder">
+    <!-- <div id="holder">
       Drag your markdown (.md) file here
-    </div>
+    </div> -->
 
     <div id="footer">
       <form>
