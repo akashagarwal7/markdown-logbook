@@ -15,7 +15,7 @@
     "demo"
   ],
   "author": "Akash Agarwal",
-  "license": "CC0-1.0",
+  "license": "GPL-3.0",
   "devDependencies": {
     "electron": "^3.0.4"
   },
