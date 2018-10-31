@@ -8,7 +8,7 @@ Electron JS app to treat a markdown file as a logbook.
 1. Record time-based activities in the form of logs in a markdown file.
 2. Preview changes in the markdown file as you type in the editable textbox!
 3. Auto-save changes.
-4. Sync the local markdown file over a network or cloud like Dropbox and use the auto-reload option to stay up-to-date in the app!
+4. Sync the local markdown file over a network or cloud like Dropbox and use the auto-reload option to stay up-to-date in the app (experimental)!
 5. Works on Windows, Linux and macOS.
 6. Quickly open your last opened file again!
 
