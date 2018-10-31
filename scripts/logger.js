@@ -7,11 +7,19 @@ var p = 'EXAMPLE.md';
 
 const { dialog } = require('electron').remote;
 
+function watchOpenedFile(path) {
+	fs.watch(path, {encoding: 'utf8'}, (event, filename) => {
+		if (event == 'change')
+			alert(filename + ' has been changed in the background. Consider refreshing!');
+	});
+}
+
 function openFileDialog() {
 	dialog.showOpenDialog({ properties: ['openFile'] }, (filePaths, bookmarks) => {
 		if (filePaths.length > 0) {
 			p = filePaths[0];
 			openFile(p);
+			watchOpenedFile(p);
 		}
 	});
 }
