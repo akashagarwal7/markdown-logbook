@@ -10,6 +10,10 @@
       <h1>Log book</h1>
       <button id='openDialog' onclick="openFileDialog()">Open</button>
       <button onclick="saveFile()">Save</button>
+      <form>
+        <input type="checkbox" id="autoSave" checked="true" onchange="setAutoSave(this.checked)">Auto save
+        <input type="checkbox" id="autoReload" checked="true" onchange="setAutoReload(this.checked)">Auto reload
+      </form>
     </span>
     <!-- All of the Node.js APIs are available in this renderer process. -->
     <!-- We are using Node.js <script>document.write(process.versions.node)</script>,

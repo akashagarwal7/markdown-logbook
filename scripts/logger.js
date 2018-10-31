@@ -6,11 +6,28 @@ var moment = require('moment');
 var p = 'EXAMPLE.md';
 
 const { dialog } = require('electron').remote;
+let autoSaveFlag = true, autoReloadFlag = true, reloadCancel = false;
+
+function setAutoSave(val) {
+	autoSaveFlag = val;
+}
+
+function setAutoReload(val) {
+	autoReloadFlag = val;
+	alert(autoReloadFlag);
+}
 
 function watchOpenedFile(path) {
-	fs.watch(path, {encoding: 'utf8'}, (event, filename) => {
-		if (event == 'change')
-			alert(filename + ' has been changed in the background. Consider refreshing!');
+	fs.watch(path, (event, filename) => {
+		if (event == 'change') {
+			if (reloadCancel) return;
+			if (!autoReloadFlag)
+				alert(filename + ' has been changed in the background. Consider reloading!');
+			else {
+				openFile(path);
+				alert (filename + ' has been reloaded since it was changed in the background!');
+			}
+		}
 	});
 }
 
@@ -26,10 +43,12 @@ function openFileDialog() {
 
 function saveFile() {
 	const data = new Uint8Array(Buffer.from(document.getElementById("textbox").value));
+	reloadCancel = true;
 	fs.writeFile(p, data, (err) => {
 	  if (err) throw err;
 	  console.log('The file has been saved!');
 	  alert('The file has been saved!');
+	  reloadCancel = false;
 	});
 }
 
@@ -42,6 +61,9 @@ function addLog(type, person, entry) {
 	let data = "\n__" + type + "__ (" + person + ") _" + date + "_ - " + entry + "\n";
 	document.getElementById("textbox").value += data;
 	updateDiv(document.getElementById("textbox").value);
+	if (autoSaveFlag) {
+		saveFile();
+	}
 }
 
 function appendLog(e) {
